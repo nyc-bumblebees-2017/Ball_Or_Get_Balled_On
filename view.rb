@@ -5,9 +5,9 @@ def welcome_statement
 end
 
 def search_type_response
-  puts "Would you like to search for markets by zipcode or borough?"
+  puts "Would you like to search for markets by zipcode or borough or display all?"
   response = gets.chomp
-  if response.downcase != "borough" && response.downcase != "zipcode"
+  if response.downcase != "borough" && response.downcase != "zipcode" && response.downcase != "all" && response.downcase != "display all"
     puts "Not a valid search criteria. Try again!"
     search_type_response
   else
@@ -15,11 +15,10 @@ def search_type_response
   end
 end
 
-
-
 def display(markets)
   markets.each do |market|
     puts "#{market["facilityname"]} at #{market["facilitystreetname"]} #{market["facilitycity"]}, #{market["facilityzipcode"]}"
+    puts ""
   end
 end
 
